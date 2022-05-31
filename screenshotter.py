@@ -45,7 +45,7 @@ input_variable = "html/quote.html"
 
 input_variable2 = os.environ['INPUT_STORE2']
 input_variable3 = "File"
-input_variable4 = os.environ['INPUT_STORE4']
+input_variable4 = "MarketingPip"
 
 
 
