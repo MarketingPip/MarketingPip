@@ -43,6 +43,8 @@ jobs:
         run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay 
       - name: Install xvfb
         run: sudo apt-get install xvfb
+      - name: Install ffmpeg
+        run:  sudo apt-get install ffmpeg
       - name: Run the scraping script
         working-directory: ./
         run: |
