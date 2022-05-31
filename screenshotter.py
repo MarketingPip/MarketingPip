@@ -59,7 +59,7 @@ FileNames = input_variable
 if input_variable3 == "URL":
     Files = FileNames.split(',')
     ReplaceText = "https://"
-    Type="https://"
+    Type="http://"
     Type2 = ""
     Type2 = Type2.replace(" ", "")
     Sleep = 10
