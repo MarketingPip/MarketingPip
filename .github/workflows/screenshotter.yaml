@@ -2,22 +2,9 @@ name: Take a Screenshot
 
 on:
    workflow_dispatch:
-     inputs:
-       Files:
-         description: 'URL(s) or File(s) to take screenshot of (seperate by comma):'
-         required: true
-         default: "https://github.com,"
-       
+   schedule:
+    - cron: '0 */4 * * *'
 
-       Directory_To_Get_HTML_File:
-         description: 'The directory name to save screenshots to (example : path/to/directory'
-         required: False
-         default: ''
-
-       Directory_To_Save_HTML_File:
-        description: 'URL or File'
-        required: True
-        default: 'URL'
 jobs:
   Screenshotter:
     runs-on: ubuntu-latest
@@ -42,7 +29,7 @@ jobs:
       - name: Run the scraping script
         working-directory: ./
         run: |
-         INPUT_STORE=${{ github.event.inputs.Files }} INPUT_STORE2=${{ github.event.inputs.Directory_To_Get_HTML_File }} INPUT_STORE3=${{ github.event.inputs.Directory_To_Save_HTML_File }}  INPUT_STORE4=${{ github.event.repository.name }} python screenshotter.py
+         INPUT_STORE=${{index.html,}} INPUT_STORE2=${{  }} INPUT_STORE3=${{ File }}  INPUT_STORE4=${{ github.event.repository.name }} python screenshotter.py
     
 
       - name: Commit and Push
