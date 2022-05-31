@@ -44,7 +44,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Install ffmpeg
-        run:  sudo apt-get install ffmpeg
+        run:  sudo apt install ffmpeg
       - name: Run the scraping script
         working-directory: ./
         run: |
