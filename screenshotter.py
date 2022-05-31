@@ -11,7 +11,7 @@ import time
 from subprocess import Popen
 from subprocess import call
 
-cmd = 'ffmpeg -y -rtbufsize 2000M -f dshow  -i video="screen-capture-recorder" -s 1920x1080 -b:v 512k -r 20 -vcodec libx264 test.avi'
+cmd = 'ffmpeg -y -rtbufsize 2000M -f dshow -i video="screen-capture-recorder" -r 10 -t 20 screen-capture.mp4'
 
 def terminate(process):
     if process.poll() is None:
