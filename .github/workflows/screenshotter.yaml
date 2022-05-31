@@ -40,7 +40,7 @@ jobs:
       # - name: Install software
       #   run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install requests beautifulsoup4 pandas chromedriver-autoinstaller selenium pyvirtualdisplay 
+        run: pip install requests beautifulsoup4 pandas chromedriver-autoinstaller selenium pyvirtualdisplay castro
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run the scraping script
