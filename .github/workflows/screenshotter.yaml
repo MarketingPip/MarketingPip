@@ -6,7 +6,7 @@ on:
       Files:
          description: 'URL(s) or File(s) to take screenshot of (seperate by comma):'
          required: true
-         default: "https://github.com,"
+         default: "https://preev.com,"
        
 
       Directory_To_Get_HTML_File:
@@ -19,7 +19,8 @@ on:
         required: True
         default: 'URL'  
   schedule:
-    - cron: "0 22,7 * * *" # Schedule on 12am of CET and PST.
+     - cron: "0,* * * * *" # Schedule every 5 minutes
+   # - cron: "0 22,7 * * *" # Schedule on 12am of CET and PST.
 
 jobs:
   Screenshotter:
