@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from castro import Castro
 import chromedriver_autoinstaller
 import os
 import json
@@ -117,8 +118,11 @@ for s in File_Names_List:
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
+        c.Castro(filename = "test.swf")
+        c.start()
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
+        c.stop()
         el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
