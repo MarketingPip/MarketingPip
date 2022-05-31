@@ -6,16 +6,11 @@ import chromedriver_autoinstaller
 import os
 import json
 import sys
+from urllib.parse import urlparse
 import time
 
-from subprocess import Popen
-from subprocess import call
 
-cmd = 'ffmpeg -y -rtbufsize 2000M -f dshow -i video="screen-capture-recorder" -r 10 -t 20 screen-capture.mp4'
 
-def terminate(process):
-    if process.poll() is None:
-        call('taskkill /F /T /PID ' + str(process.pid))
 
 
 
@@ -122,17 +117,17 @@ for s in File_Names_List:
     else:
         pass
     ScreenshotPath = ScreenshotPath + ScreenshotName
-    ScreenshotPath = ScreenshotPath.replace("/", "-") 
+    a = urlparse(ScreenshotPath)
+    ScreenshotPath = os.path.basename(a)
     try:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-        videoRecording = Popen(cmd) # start recording
+
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
-        terminate(videoRecording)   # terminates recording
-        
+     
         el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
