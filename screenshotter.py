@@ -8,6 +8,16 @@ import json
 import sys
 import time
 
+from subprocess import Popen
+from subprocess import call
+
+cmd = 'ffmpeg -y -rtbufsize 2000M -f dshow  -i video="screen-capture-recorder" -s 1920x1080 -b:v 512k -r 20 -vcodec libx264 test.avi'
+
+def terminate(process):
+    if process.poll() is None:
+        call('taskkill /F /T /PID ' + str(process.pid))
+
+
 
 
 
@@ -118,10 +128,11 @@ for s in File_Names_List:
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-
+        videoRecording = Popen(cmd) # start recording
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
-
+        terminate(videoRecording)   # terminates recording
+        
         el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
