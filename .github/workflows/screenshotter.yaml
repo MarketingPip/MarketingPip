@@ -19,8 +19,8 @@ on:
         required: True
         default: 'File'  
   schedule:
-     - cron: "0,* * * * *" # Schedule every 5 minutes
-   # - cron: "0 22,7 * * *" # Schedule on 12am of CET and PST.
+    # - cron: "0,* * * * *" # Schedule every 5 minutes
+    - cron: "0 22,7 * * *" # Schedule on 12am of CET and PST.
 
 jobs:
   Screenshotter:
