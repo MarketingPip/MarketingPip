@@ -31,9 +31,9 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 
 chrome_options = webdriver.ChromeOptions()
 options = [
-    "window-size=0,0",
+    "window-size=1200,1200",
     "ignore-certificate-errors",
-    #"hide-scrollbars"
+    "hide-scrollbars"
     "user-agent=[Mozilla/5.0 (Linux; Android 5.1; PULP Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/44.0.2403.119 Mobile Safari/537.36]"
 ]
 for option in options:
@@ -123,10 +123,10 @@ for s in File_Names_List:
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
 
-     #   driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
+        driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
      
-     #   el = driver.find_element_by_tag_name('body')
+        el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(FilePath + ScreenshotPath)
         print("Screenshot captured")
         print(Link)
