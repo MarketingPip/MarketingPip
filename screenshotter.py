@@ -20,7 +20,7 @@ PythonScriptPath = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 print(PythonScriptPath)
 from pyvirtualdisplay import Display
-display = Display(visible=0, size=(2000, 2000))
+display = Display(visible=0, size=(1200, 1200))
 display.start()
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
