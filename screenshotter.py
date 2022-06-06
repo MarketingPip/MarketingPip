@@ -103,7 +103,7 @@ for i in Files:
 
 
 File_Names_List.pop()
-driver = webdriver.Chrome(options = chrome_options)
+driver = webdriver.Chrome()
 for s in File_Names_List:
     ScreenshotPath = FilePath
     FilePath = s.replace(ReplaceText, "")
