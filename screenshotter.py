@@ -104,7 +104,6 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-driver.set_window_size(10, 10)
 for s in File_Names_List:
     ScreenshotPath = FilePath
     FilePath = s.replace(ReplaceText, "")
