@@ -25,8 +25,8 @@ Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/sou
 
 
 <div align="right">
-   <br>This image  ⤴️<br> was dynamically generated
-   come back later for a tutorial how!
+  <br>This image was dynamically generated ⤴️<br> 
+   come back later for a tutorial on how to make your own!
 </div>
 
 
