@@ -15,7 +15,7 @@ My goal is to help make tools for developers to make their lifes easier, create 
 
 
 
-You can find some of my other work @ [Marketing Pipeline](https://github.com/Marketing-Pipeline/)
+You can find some of my other work @ [Marketing Pipeline](https://github.com/MarketingPipeline/)
 
 
 ---
