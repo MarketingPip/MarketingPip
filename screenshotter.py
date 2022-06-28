@@ -40,8 +40,8 @@ for option in options:
     chrome_options.add_argument(option)
 
 
-driver = webdriver.Chrome()
-
+    
+driver = webdriver.Chrome(options = chrome_options)
 
 
 input_variable = "html/quote.html"
