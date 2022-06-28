@@ -31,7 +31,7 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 
 chrome_options = webdriver.ChromeOptions()
 options = [
-    "--start-maximized",
+    "start-maximized",
   #  "--window-size=1200,1200",
     "--ignore-certificate-errors",
     "--hide-scrollbars",
