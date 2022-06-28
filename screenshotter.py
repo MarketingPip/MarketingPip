@@ -42,14 +42,6 @@ for option in options:
 
 driver = webdriver.Chrome()
 
-def send(cmd, params={}):
-  resource = "/session/%s/chromium/send_command_and_get_result" % driver.session_id
-  url = driver.command_executor._url + resource
-  body = json.dumps({'cmd':cmd, 'params': params})
-  response = driver.command_executor._request('POST', url, body)
-  if response['status']: raise Exception(response.get('value'))
-  return response.get('value')
-
 
 
 input_variable = "html/quote.html"
@@ -108,7 +100,7 @@ for i in Files:
 
 
 # take screenshot with a transparent background
-send("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
+driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}}
 
 File_Names_List.pop()
 
