@@ -100,7 +100,7 @@ for i in Files:
 
 
 # take screenshot with a transparent background
-driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}}
+driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
 File_Names_List.pop()
 
