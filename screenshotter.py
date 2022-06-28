@@ -40,7 +40,7 @@ for option in options:
     chrome_options.add_argument(option)
 
 
-
+driver = webdriver.Chrome()
 
 def send(cmd, params={}):
   resource = "/session/%s/chromium/send_command_and_get_result" % driver.session_id
@@ -111,7 +111,7 @@ for i in Files:
 send("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
 File_Names_List.pop()
-driver = webdriver.Chrome()
+
 for s in File_Names_List:
     ScreenshotPath = FilePath
     FilePath = s.replace(ReplaceText, "")
