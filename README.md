@@ -10,8 +10,9 @@
   
 
 
-I love to make cool things (try to atleast!), and consider myself a fairly curious person. 
-My goal is to help make tools for developers to make their lifes easier, create new projects that benefit society / and to help solve problems that more than just the developer community benefit from!
+I love to make cool things (try to at least!), and I consider myself a fairly curious person. 
+
+My goal is to help make tools for developers to make their lives easier and to create new projects that help benefit society and solve problems that more than just the developer community can benefit from!
 
 
 
