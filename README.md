@@ -31,7 +31,7 @@ Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/sou
 </div>
 
 <div align="center">
-<img width="460" height="300" src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Thank%20You&fontSize=90&animation=fadeIn&fontAlignY=38&desc=For Visiting My Github Profile - MarkertingPip&descAlignY=51&descAlign=62" />
+<img width="460" height="300" src="https://capsule-render.vercel.app/api?type=waving&color=03a9f4&height=300&section=header&text=Thank%20You&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=For Visiting My Github Profile - MarkertingPip&descAlignY=51&descAlign=50" />
  </div>
 
 
