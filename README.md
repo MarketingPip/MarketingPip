@@ -10,19 +10,14 @@
   
 
 
-I love to make cool things (try to at least!), and I consider myself a fairly curious person. 
-
+I love to make cool things (try to at least!), and I consider myself a fairly curious person. 
 My goal is to help make tools for developers to make their lives easier and to create new projects that help benefit society and solve problems that more than just the developer community can benefit from!
 
 
 
-
-
-<br>
-
 You can find some of my other work @ [Marketing Pipeline](https://github.com/MarketingPipeline/)
 
-<br><br>
+
 ---
 ### You can sponsor my work SOON through [GitHub sponsors.](https://github.com/sponsors/)
 
@@ -33,8 +28,5 @@ Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/sou
   <br>This image was dynamically generated ⤴️<br> 
    come back later for a tutorial on how to make your own!
 </div>
-
-
-
 
 
