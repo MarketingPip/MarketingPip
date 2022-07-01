@@ -21,6 +21,7 @@ You can find some of my other work @ [Marketing Pipeline](https://github.com/Mar
 ---
 ### You can sponsor my work SOON through [GitHub sponsors.](https://github.com/sponsors/)
 
+
 Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/southpark/images/c/ca/PhillipPip.png/revision/latest/scale-to-width-down/350?cb=20171020035739">
 
 
@@ -29,8 +30,9 @@ Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/sou
    come back later for a tutorial on how to make your own!
 </div>
 
+<div align="center">
+<img width="460" height="300" src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Thank%20You&fontSize=90&animation=fadeIn&fontAlignY=38&desc=For Visiting My Github Profile - MarkertingPip&descAlignY=51&descAlign=62" />
+ </div>
 
 
-<img width="460" height="300" src="https://capsule-render.vercel.app/api?type=wave&color=auto&section=header&text=Hello&fontSize=90" />
- 
 
