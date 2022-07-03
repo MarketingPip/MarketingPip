@@ -45,7 +45,7 @@ for option in options:
 driver = webdriver.Chrome(options = chrome_options)
 
 
-input_variable = "html/quotes.html"
+input_variable = "html/quote.html"
 
 
 input_variable2 = "demo,"
