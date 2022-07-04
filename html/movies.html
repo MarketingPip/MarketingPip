@@ -14,11 +14,11 @@
 
 <script>
   
-  class Repository extends HTMLElement {
+class Media_Details extends HTMLElement {
   constructor() {
     super();
 
-    this.repoDetails = null;
+    this.mediaElementDetails = null;
 
     this.name = this.getAttribute("name");
     
@@ -32,6 +32,7 @@
     this.name.indexOf("(") + 1, 
     this.name.lastIndexOf(")")
 );
+   
      if (this.type == undefined){
     
      EndPoint = `https://api.themoviedb.org/3/search/movie?api_key=${TheMovieDB_APIKey}&language=en-US&query=${MovieName}&year=${Year}`
@@ -41,9 +42,13 @@
       if (this.type == "TV"){
     
      EndPoint = `https://api.themoviedb.org/3/search/tv?api_key=${TheMovieDB_APIKey}&language=en-US&query=${MovieName}&first_air_date_year=${Year}`
-    
+  //  console.log(EndPoint)
     }
-   
+       if (this.type == "song"){
+    
+     EndPoint = `https://itunes.apple.com/search?term=${this.name}&entity=song`
+  //  console.log(EndPoint)
+    }
     
   
     
@@ -55,8 +60,8 @@
   }
 
   async connectedCallback() {
-    let repo = await this.getDetails();
-    this.repoDetails = repo;
+    let mediaElement = await this.getDetails();
+    this.mediaElementDetails = mediaElement;
     this.initShadowDom();
   }
 
@@ -66,6 +71,17 @@
   }
 
   get style() {
+    
+     if (this.type == "song"){
+    
+    var CardHeight_Desktop = `170px`
+    
+        var CardHeight_Mobile = `240px`
+  //  console.log(EndPoint)
+    } else {
+      var CardHeight_Desktop = `350px`
+       var CardHeight_Mobile = `303px`
+    }
     
      var Style = this.getAttribute("theme")
     
@@ -81,7 +97,7 @@
   position: relative;
   display: block;
   width: 800px;
-  height: 350px;
+  height: ${CardHeight_Desktop};
   margin: 80px auto;
   overflow: hidden;
   border-radius: 10px;
@@ -153,7 +169,8 @@
 .movie_card .info_section .movie_desc .text {
   color: #545454;
   
-  font-size: 0.69vw;
+    display: block;
+  font-size: 0.86rem;
 }
 .movie_card .info_section .movie_social {
   height: 10%;
@@ -187,6 +204,7 @@
   right: 0;
   background-size: cover;
   border-radius: 11px;
+  
 }
 @media screen and (min-width: 768px) {
   .movie_header {
@@ -201,13 +219,14 @@
   .blur_back {
     width: 80%;
     background-position: -100% 10% !important;
+   
   }
 }
 @media screen and (max-width: 768px) {
   .movie_card {
     width: 95%;
     margin: 70px auto;
-    min-height: 350px;
+    min-height: ${CardHeight_Mobile};
     height: auto;
   }
   .blur_back {
@@ -249,7 +268,7 @@
   position: relative;
   display: block;
   width: 800px;
-  height: 350px;
+  height: ${CardHeight_Desktop};
   margin: 100px auto;
   overflow: hidden;
   border-radius: 10px;
@@ -366,6 +385,7 @@
   right: 0;
   background-size: cover;
   border-radius: 11px;
+    
 }
 @media screen and (min-width: 768px) {
   .movie_header {
@@ -382,21 +402,27 @@
     background-position: -100% 10% !important;
   }
 }
+ .movie_header_dark_p {
+    color:white;
+  }
 @media screen and (max-width: 768px) {
   .movie_card {
     width: 95%;
     margin: 70px auto;
-    min-height: 350px;
+    min-height:  ${CardHeight_Mobile};
     height: auto;
   }
   .blur_back {
     width: 100%;
+  
     background-position: 50% 50% !important;
   }
   .movie_header {
     width: 100%;
     margin-top: 85px;
   }
+  
+  
   .movie_desc {
     width: 100%;
   }
@@ -443,15 +469,19 @@
   }
 
   get template() {
-    let repo = this.repoDetails;
-    if (repo.total_results === 0) {
-      return this.style + this.cardError(repo);
+    let mediaElement = this.mediaElementDetails;
+    if (mediaElement.total_results === 0) {
+      return this.style + this.cardError(mediaElement);
     } 
     
-    if (repo.status_message) {
-      return this.style + this.cardError(repo);
+    
+    
+    
+    
+    if (mediaElement.status_message) {
+      return this.style + this.cardError(mediaElement);
     } else {
-      return this.style + this.cardTemplate(repo);
+      return this.style + this.cardTemplate(mediaElement);
     }
   }
 
@@ -472,8 +502,10 @@
   }
 
 
-  cardError({status_message, total_results }) {
-    
+  cardError({status_message, total_results, results }) {
+    if (results == undefined){
+      var Error = "Can't find song"
+    }
     if (status_message == undefined){
       
       var Error = "Movie / TV Show Not Found"
@@ -511,17 +543,40 @@
     `;
   }
 
-  cardTemplate({ page, results}) {
-    
+  cardTemplate({Count, page, results}) {
+    console.log(results)  
+    var CardBackgroundStyling = ` background-size: cover;
+  
+     background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+    left:33%;`
     if (this.type == undefined){
-      	for (var k in results[0].title) {
+     
 		var Movie = results[0].title
     var Description = results[0].overview
-
+    	var id = results[0].id
+    //  console.log(id)
      var PosterPath = "https://image.tmdb.org/t/p/w500" + results[0].poster_path
      var BackdropPath = "https://image.tmdb.org/t/p/w500" +  results[0].backdrop_path
      
      var Released_In_Year = results[0].release_date.split('-')[0]
+     
+     
+     //// NEED TO FETCH MOVIE RUN TIMES + GENRES
+          //fetch(`https://api.themoviedb.org/3/movie/${results[0].id}?api_key=249f222afb1002186f4d88b2b5418b55`)
+   // .then(function(response) {
+     // return response.json();
+   // })
+    //.then(function(result) {
+         //var RunTime = result.runtime
+         
+         // var Genres = result.genres
+        // console.log(Genres)  
+       //  console.log(RunTime)
+            
+            
+     //  })
      
      var P_ClassType = "show-minutes"
      var Minutes = `<span class="minutes">136 min</span>`
@@ -536,10 +591,13 @@
      //}
      
    /*  {"genres":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]} */
+     
+
+     
 	}
     
     
-    }
+   
     
       if (this.type == "TV"){
         var Movie =  results[0].name
@@ -552,10 +610,19 @@
         var P_ClassType = "no-minutes"
       }
     
+     var Count = 0 
+    for (var k in this.name) {
+      Count = Count + 1
+      
+      
+    
+    
+      
+    }
+    
+       var Template = `
    
-    return `
-   
-<div class="movie_card" id="bright">
+<div class="movie_card" id="movie_element_${Count}">
   <div class="info_section">
     <div class="movie_header">
       <img class="locandina"  src="${PosterPath}"/>
@@ -573,16 +640,105 @@
   
   </div>
   <div class="blur_back" style="background:url(${BackdropPath}); background-size: cover;
-  
+     left:33%;
      background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center; 
-    left:33%;
+    
     "    ></div>
 </div>
-    `;
+    `
+       
+        if (this.type == "song"){
+       
+       CardBackgroundStyling = ` 
+    background-position: center center; 
+    `
+    // results[0].artworkUrl100}"/>
+    //  <h1>${
+    //        results[0].trackName}</h1></h1>
+    //  <h4>${
+    //        results[0].artistName}</h4>
+    
+    //  <p class="">${results[0].collectionName}</p>
+   // </div>
+   
+  
+ // </div>
+ // <div class="blur_back" //style="background:url(${results[0].artworkUrl100}); 
+///  
+  
+		var Movie = results[0].trackName
+    var Description = results[0].collectionName
+    //	var id = results[0].id
+    //  console.log(id)
+     var PosterPath = results[0].artworkUrl100
+     var BackdropPath = results[0].artworkUrl100
+     
+  var Released_In_Year = results[0].releaseDate.split('-')[0]
+     
+     
+     //// NEED TO FETCH MOVIE RUN TIMES + GENRES
+          //fetch(`https://api.themoviedb.org/3/movie/${results[0].id}?api_key=249f222afb1002186f4d88b2b5418b55`)
+   // .then(function(response) {
+    // return response.json();
+   // })
+  //  .then(function(result) {
+    //     var RunTime = result.runtime
+         
+      //    var Genres = result.genres
+        // console.log(Genres)  
+       //  console.log(RunTime)
+            
+            
+     //  })
+     
+     var P_ClassType = "show-minutes"
+     var Minutes = `<span class="minutes">Eminem</span>`
+ //   var Genre = results[0].genre_ids
+    
+   // var array = Genre + ""
+    //console.log(array)
+     
+    // if (Genre = "28") {
+       
+     //  var GenreType = "f"
+     //}
+     
+   /*  {"genres":[{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]} */
+     Template = `
+<div class="movie_card" id="movie_element_">
+  <div class="info_section">
+    <div class="movie_header">
+      <img class="locandina"  src="${results[0].artworkUrl100}"/>
+      <h1>${
+            results[0].trackName}</h1></h1>
+      <h4>${
+            results[0].artistName}</h4>
+    
+      <p class="movie_header_dark_p">${results[0].collectionName}</p>
+        <p class="movie_header_dark_p">${results[0].primaryGenreName}</p>
+    </div>
+   
+  
+  </div>
+  <div class="blur_back" style="background:url(${results[0].artworkUrl100}); 
+  
+  
+    background-position: center center; 
+ 
+    "    ></div>
+</div>
+        
+        `
+
+     
+	}
+    
+    
+    return Template;
   }
 }
 
-window.customElements.define("motion-picture", Repository);
+window.customElements.define("media-element", Media_Details);
 </script>
