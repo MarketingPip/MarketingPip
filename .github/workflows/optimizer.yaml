@@ -9,6 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: MarketingPipeline/Image-Optimizer-Action@main
+      with:
+       filename: /example_folder_path/
+       recursion: true
         
      # Commit the updates
     - name: Commit and Push Optimized Images
