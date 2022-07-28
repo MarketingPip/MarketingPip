@@ -44,10 +44,10 @@ for option in options:
 
 
 
-input_variable = "https://google.com,https://github.com,https://youtube.com"
+input_variable = "html/quotes.html,html/movies.html"
 
 
-input_variable2 = "demo"
+input_variable2 = "demo,"
 input_variable3 = "URL"
 input_variable4 = "MarketingPip"
 
