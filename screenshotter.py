@@ -73,7 +73,7 @@ if input_variable3 == "URL":
 
 else:
 
-    Files = FileNames.split('.')
+    Files = FileNames.split(',')
     ReplaceText = ".html"
     Type = f"file:///home/runner/work/{input_variable4}/{input_variable4}/"
     Type2 = ".html"
