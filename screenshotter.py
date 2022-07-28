@@ -117,7 +117,7 @@ for s in File_Names_List:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         driver.get(Link)
-        print(link)
+        print(Link)
         print(ScreenshotPath)
         time.sleep(Sleep)
         T = driver.save_screenshot(ScreenshotPath)
