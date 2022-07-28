@@ -44,7 +44,7 @@ for option in options:
 
 
 
-input_variable = "html/quotes.html,html/movie.html,"
+input_variable = "html/quotes.html,html/movies.html,"
 
 
 input_variable2 = "demo"
@@ -111,8 +111,8 @@ File_Names_List.pop()
 driver = webdriver.Chrome()
 for s in File_Names_List:
     ScreenshotPath = FilePath
-    FilePath = s.replace(ReplaceText, "")
-    FileName = FilePath.replace(",", "")
+    FileName = s.replace(ReplaceText, "")
+    FileName = FileName.replace(",", "")
     Name = FileName
     ScreenshotName = Name
     Link =  Type + Name + Type2
