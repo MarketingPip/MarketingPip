@@ -44,11 +44,11 @@ for option in options:
 
 
 
-input_variable = "html/quote.html,html/movies.html"
+input_variable = "https://google.com,https://github.com,https://youtube.com"
 
 
 input_variable2 = "demo"
-input_variable3 = "File"
+input_variable3 = "URL"
 input_variable4 = "MarketingPip"
 
 
@@ -62,8 +62,9 @@ FileNames = input_variable
 if input_variable3 == "URL":
     Files = FileNames.split(',')
     ReplaceText = "https://"
-    Type="http://"
+    Type="https://"
     Type2 = ""
+    Type2 = Type2.replace(" ", "")
     Sleep = 60
 
 
@@ -117,10 +118,13 @@ for s in File_Names_List:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         driver.get(Link)
-        print(Link)
-        print(ScreenshotPath)
+        #driver.get(Link)
         time.sleep(Sleep)
-        T = driver.save_screenshot(ScreenshotPath)
+        el = driver.find_element_by_tag_name('body')
+        el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
+        print(Link)
     except IOError as e:
         print(e)
+
+driver.close()
