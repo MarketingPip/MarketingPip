@@ -120,7 +120,7 @@ for s in File_Names_List:
         driver.get(Link)
         #driver.get(Link)
         time.sleep(Sleep)
-        el = driver.find_element_by_tag_name('body')
+       # el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
         print(Link)
