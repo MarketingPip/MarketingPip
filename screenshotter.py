@@ -47,9 +47,16 @@ for option in options:
 input_variable = "html/quotes.html,"
 
 
-input_variable2 = "demo"
+input_variable2 = "demo,"
 input_variable3 = "File"
 input_variable4 = "MarketingPip"
+
+
+FileNames = input_variable
+
+
+
+
 
 
 FileNames = input_variable
@@ -62,10 +69,10 @@ FileNames = input_variable
 if input_variable3 == "URL":
     Files = FileNames.split(',')
     ReplaceText = "https://"
-    Type="https://"
+    Type="http://"
     Type2 = ""
     Type2 = Type2.replace(" ", "")
-    Sleep = 60
+    Sleep = 10
 
 
 
@@ -73,7 +80,7 @@ else:
 
     Files = FileNames.split('.')
     ReplaceText = ".html"
-    Type = "file:///home/runner/work/Screenshot-Github-Action/Screenshot-Github-Action/"
+    Type = f"file:///home/runner/work/{input_variable4}/{input_variable4}/"
     Type2 = ".html"
     Sleep = 5
     
@@ -114,16 +121,21 @@ for s in File_Names_List:
     else:
         pass
     ScreenshotPath = ScreenshotPath + ScreenshotName
+    ScreenshotPath = os.path.basename(ScreenshotPath)
     try:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
+        #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-        #driver.get(Link)
+
+        driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
-       # el = driver.find_element_by_tag_name('body')
-        el = driver.save_screenshot(ScreenshotPath)
+     
+     #   el = driver.find_element_by_tag_name('body')
+        el = driver.save_screenshot(FilePath + ScreenshotPath)
         print("Screenshot captured")
         print(Link)
+        print(ScreenshotPath)
     except IOError as e:
         print(e)
 
