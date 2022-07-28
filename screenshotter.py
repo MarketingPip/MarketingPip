@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
 import chromedriver_autoinstaller
 import os
 import json
@@ -12,15 +11,11 @@ import time
 
 
 
-
-
-
-
 PythonScriptPath = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 print(PythonScriptPath)
 from pyvirtualdisplay import Display
-display = Display(visible=0, size=(1920, 1024))
+display = Display(visible=0, size=(1200, 1200))
 display.start()
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
@@ -31,18 +26,16 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 
 chrome_options = webdriver.ChromeOptions()
 options = [
-   "--start-maximized",
-   #"--window-size=1000,1000",
+    "--window-size=1200,1200",
     "--ignore-certificate-errors",
-    "--hide-scrollbars",
-    "--user-agent=[Mozilla/5.0 (Linux; Android 5.1; PULP Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/44.0.2403.119 Mobile Safari/537.36]"
+    "--hide-scrollbars"
+    "user-agent=[Mozilla/5.0 (Linux; Android 5.1; PULP Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/44.0.2403.119 Mobile Safari/537.36]"
 ]
 for option in options:
     chrome_options.add_argument(option)
 
 
-    
-driver = webdriver.Chrome(options = chrome_options)
+
 
 
 input_variable = "html/quote.html,html/movies.html"
@@ -54,8 +47,9 @@ input_variable4 = "MarketingPip"
 
 
 
-FileNames = input_variable
 
+
+FileNames = input_variable
 
 
 
