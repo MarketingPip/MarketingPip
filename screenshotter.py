@@ -48,7 +48,7 @@ driver = webdriver.Chrome(options = chrome_options)
 input_variable = "html/quote.html,html/movies.html"
 
 
-input_variable2 = "demo,"
+input_variable2 = "demo"
 input_variable3 = "File"
 input_variable4 = "MarketingPip"
 
@@ -61,10 +61,11 @@ FileNames = input_variable
 
 
 
+
 if input_variable3 == "URL":
     Files = FileNames.split(',')
     ReplaceText = "https://"
-    Type="http://"
+    Type="https://"
     Type2 = ""
     Type2 = Type2.replace(" ", "")
     Sleep = 10
@@ -73,7 +74,7 @@ if input_variable3 == "URL":
 
 else:
 
-    Files = FileNames.split(',')
+    Files = FileNames.split('.')
     ReplaceText = ".html"
     Type = f"file:///home/runner/work/{input_variable4}/{input_variable4}/"
     Type2 = ".html"
@@ -100,11 +101,10 @@ for i in Files:
 
 
 
-# take screenshot with a transparent background
-driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
+
 
 File_Names_List.pop()
-
+driver = webdriver.Chrome()
 for s in File_Names_List:
     ScreenshotPath = FilePath
     FilePath = s.replace(ReplaceText, "")
@@ -117,18 +117,16 @@ for s in File_Names_List:
     else:
         pass
     ScreenshotPath = ScreenshotPath + ScreenshotName
-    ScreenshotPath = os.path.basename(ScreenshotPath)
+    ScreenshotPath = ScreenshotPath.replace("/", "-") 
     try:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
-     
-       # el = driver.find_element_by_tag_name('body')
-        el = driver.save_screenshot(FilePath + ScreenshotPath)
+        el = driver.find_element_by_tag_name('body')
+        el = driver.save_screenshot(ScreenshotPath)
         print("Screenshot captured")
         print(Link)
         print(ScreenshotPath)
