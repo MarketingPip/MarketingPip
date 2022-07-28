@@ -44,10 +44,10 @@ for option in options:
 
 
 
-input_variable = "html/quotes.html,html/movies.html,"
+input_variable = "html/quotes.html,"
 
 
-input_variable2 = "demo,"
+input_variable2 = "demo"
 input_variable3 = "File"
 input_variable4 = "MarketingPip"
 
