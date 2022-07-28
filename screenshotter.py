@@ -78,7 +78,7 @@ if input_variable3 == "URL":
 
 else:
 
-    Files = FileNames.split('.')
+    Files = FileNames.split(',')
     ReplaceText = ".html"
     Type = f"file:///home/runner/work/{input_variable4}/{input_variable4}/"
     Type2 = ".html"
@@ -133,7 +133,7 @@ for s in File_Names_List:
      
      #   el = driver.find_element_by_tag_name('body')
         el = driver.save_screenshot(FilePath + ScreenshotPath)
-        print(FilePath+ScreenshotPath)
+      #  print(FilePath+ScreenshotPath)
         print("Screenshot captured")
         print(Link)
         print(ScreenshotPath)
