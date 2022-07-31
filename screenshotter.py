@@ -139,7 +139,6 @@ for s in File_Names_List:
         print(p)
         # Start selenium code...
         time.sleep(10)
-        proc.kill()
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
      
