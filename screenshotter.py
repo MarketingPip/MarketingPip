@@ -128,7 +128,7 @@ for s in File_Names_List:
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-        proc = subprocess.Popen(['ffmpeg', '-f', 'gdigrab', '-framerate', '15', '-offset_x', '0', '-offset_y', '0', '-video_size', '1920x1080', '-i', 'desktop', '-c:v', 'libx264', '-vprofile', 'baseline', '-g', '15', '-crf', '1', '-pix_fmt', 'yuv420p', '-threads', '4', 'output.mkv'])
+        proc = subprocess.Popen(['ffmpeg', '-f', 'gdigrab', '-framerate', '15', '-video_size', '1920x1080', '-i', 'desktop', '-c:v', 'libx264', '-vprofile', 'baseline', '-g', '15', '-crf', '1', '-pix_fmt', 'yuv420p', '-threads', '4', 'output.mkv'])
         # Start selenium code...
         time.sleep(10)
         proc.kill()
