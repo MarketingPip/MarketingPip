@@ -130,7 +130,7 @@ for s in File_Names_List:
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
           # normal quality, lagging in the first part on the video. filesize ~7MB
-        ffmpeg_stream = 'ffmpeg -f x11grab -s 1280x720 -r 24 -i :%d+nomouse -c:v libx264 -preset superfast -pix_fmt yuv420p -s 1280x720 -threads 0 -f flv "%s"' % (display.new_display, "test.flv")
+        ffmpeg_stream = 'ffmpeg -f x11grab -s 1280x720 -r 24 -i :%d+nomouse -c:v libx264 -preset superfast -pix_fmt yuv420p -s 1280x720 -threads 0 -f flv "%s"' % (display, "test.flv")
 
     # high quality, no lagging but huge file size ~50MB
         #ffmpeg_stream = 'ffmpeg -y -r 30 -f x11grab -s 1280x720 -i :%d+nomouse -c:v libx264rgb -crf 15 -preset:v ultrafast -c:a pcm_s16le -af aresample=async=1:first_pts=0 out.mkv'  % xvfb.new_display
