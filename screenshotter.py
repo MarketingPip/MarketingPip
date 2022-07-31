@@ -6,7 +6,7 @@ import os
 import json
 import sys
 import time
-import subprocess
+import subprocess, shlex
 
 
 
@@ -19,7 +19,7 @@ PythonScriptPath = os.path.realpath(
 print(PythonScriptPath)
 from pyvirtualdisplay import Display
 display = Display(visible=0, size=(800, 800))
-display.start()
+
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
@@ -109,6 +109,7 @@ for i in Files:
 
 
 File_Names_List.pop()
+display.start()
 driver = webdriver.Chrome()
 for s in File_Names_List:
     ScreenshotPath = FilePath
@@ -128,7 +129,14 @@ for s in File_Names_List:
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-        proc = subprocess.Popen(['ffmpeg', '-f', 'x11grab', '-framerate', '15', '-video_size', '1920x1080', '-i', 'desktop', '-c:v', 'libx264', '-vprofile', 'baseline', '-g', '15', '-crf', '1', '-pix_fmt', 'yuv420p', '-threads', '4', 'output.mkv'])
+          # normal quality, lagging in the first part on the video. filesize ~7MB
+        ffmpeg_stream = 'ffmpeg -f x11grab -s 1280x720 -r 24 -i :%d+nomouse -c:v libx264 -preset superfast -pix_fmt yuv420p -s 1280x720 -threads 0 -f flv "%s"' % (display.new_display, "test.flv")
+
+    # high quality, no lagging but huge file size ~50MB
+        #ffmpeg_stream = 'ffmpeg -y -r 30 -f x11grab -s 1280x720 -i :%d+nomouse -c:v libx264rgb -crf 15 -preset:v ultrafast -c:a pcm_s16le -af aresample=async=1:first_pts=0 out.mkv'  % xvfb.new_display
+        args = shlex.split(ffmpeg_stream)
+        p = subprocess.Popen(args)
+        print(p)
         # Start selenium code...
         time.sleep(10)
         proc.kill()
