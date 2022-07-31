@@ -40,7 +40,7 @@ jobs:
       # - name: Install software
       #   run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay 
+        run: pip install chromedriver-autoinstaller selenium xvfbwrapper
       - name: Install xvfb 
         run: sudo apt-get install xvfb ffmpeg
       - name: Run the scraping script
