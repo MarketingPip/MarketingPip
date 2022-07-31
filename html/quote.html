@@ -1,101 +1,34 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" crossorigin="anonymous"></script>
-<style>
-  body{
- background: url(https://images.unsplash.com/photo-1493246507139-91e8fad9978e?dpr=1.25&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=); 
- background-size: cover;
-	    background-color: transparent;
-  color: white;
-  font-family: Garamond;
-}
-.introduction{
-	text-align: center;	
-}
-h1{
-  font-family: 'Fugaz One', cursive;
-  font-size: 50px;
-  text-shadow: 5px 4px black, -1px -1px #444;
-}
-h2{
-  font-family: 'Fugaz One', cursive;
-  font-size: 20px;
-}
-a{
-  color: red;
-  text-decoration:underline;
-}
-a:hover{
-  color:black;
-  text-decoration:none;
-}
-p{
-  padding: 30px;
-  font-size: 20px;
-}
-button{
-	margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.6);
-  font-family: Garamond;
-}
-button:hover{
-  color: red;
-  border: 1px solid red;
-}
-.quotes{
-  background-color: black;
-  width: 80%;
-  margin: 60px auto;
-  padding: 30px;
-  border: 3px solid white;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.9);
-  min-height:400px;
-  font-family: Courier;
-}
-.quote{
-    font-size:40px;
-}
-.author{
-  font-size: 50px;
-}
-</style>
-<link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
+<!-- Place in document head -->
+<link rel="stylesheet" href="https://github.com/PolarNotion/starwarsintro/raw/master/starwarsintro.css">
 
-<div class="container text-center">
- 
+<!-- Place in Body where you'd like intro to appear -->
+<div class="star-wars-intro">
 
+  <!-- Blue Intro Text -->
+  <p class="intro-text">
+    A few days ago, during...
+  </p>
 
-  <div class="quotes text-center">
-		<span class="quote"></span>
-    <br/>
-    <span class="author"></span>
+  <!-- Logo Image or Text goes in here -->
+  <h2 class="main-logo">
+    <img src="img/star-wars-intro.png">
+  </h2>
+
+  <!-- All Scrolling Content Goes in here -->
+  <div class="main-content">
+
+    <div class="title-content">
+      <p class="content-header">EPISODES IV-VI<br/>A Movie Marathon</p>
+
+      <br>
+
+      <p class="content-body">
+        After years of galactic silence, civilization is on the brink of a new Star Wars release. Now, with the Force preparing to awaken, the people of Earth seek solace in films of old. With nowhere to turn, they gather in great numbers and watch the original trilogy without rest. Three films. 6 hours. 24 minutes. Popcorn. Slushies. Total elation.
+      </p>
+
+      <!-- button or link or whatever -->
+      <a href="./StarScroll.zip" class="space-button">Download The Code Now!</a>
+        
+    </div>
   </div>
-  
-
 </div>
-<script>
-  $(document).ready(function() {
-  var quote;
-  var author;
-  
-  function getQuote(){    
-    var forismaticAPI = "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?";  
-    
-    $.getJSON(forismaticAPI, function(data) {
-      quote = data.quoteText;
-      author = data.quoteAuthor;
-       $(".quote").text(data.quoteText);
-       $(".author").text("-"+data.quoteAuthor);
-    });   
-  }; //getQuote function
-  
-    $("#tweet").on("click", function(){
-      window.open("https://twitter.com/intent/tweet?text=" + quote + " -" + author);
-    });
-
-    $("#newQuote").on("click", function(){
-    getQuote();
-    });
-  
-    getQuote();
-}); //docready
-</script>
