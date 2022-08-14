@@ -112,7 +112,7 @@ driver = webdriver.Chrome()
 for s in File_Names_List:
     with open(s) as f:
         if '<!--MAKE-TRANSPARENT-->' in f.read():
-            print("Writing Transparent")
+            driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
         if 'Browser-Width' in f.read():
             print("Writing Transparent")
