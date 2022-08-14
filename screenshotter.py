@@ -110,6 +110,14 @@ for i in Files:
 File_Names_List.pop()
 driver = webdriver.Chrome()
 for s in File_Names_List:
+    with open(s) as f:
+        if '<!--MAKE-TRANSPARENT-->' in f.read():
+            print("Writing Transparent")
+
+        if 'Browser-Width' in f.read():
+            print("Writing Transparent")
+
+                       
     ScreenshotPath = FilePath
     FileName = s.replace(ReplaceText, "")
     FileName = FileName.replace(",", "")
