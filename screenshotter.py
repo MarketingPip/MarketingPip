@@ -45,7 +45,7 @@ for option in options:
 
 
 
-input_variable = "html/quote.html,html/movies.html,html/open_graph.html,html/open_graph-2.html,quote-transparent.html,"
+input_variable = "html/quote.html,html/movies.html,html/open_graph.html,html/open_graph-2.html,html/quote-transparent.html,"
 
 
 input_variable2 = "demo"
