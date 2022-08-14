@@ -109,6 +109,8 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
+BodyWidth = '<!-BROWSER-SIZE:(.*?)->'
+
 for s in File_Names_List:
     with open(s) as f:
         if '<!--MAKE-TRANSPARENT-->' in f.read():
@@ -116,6 +118,9 @@ for s in File_Names_List:
 
         if 'Browser-Width' in f.read():
             print("Writing Transparent")
+            
+        if (match) in re.findall(BodyWidth, f, re.DOTALL):
+            print(match)
 
                        
     ScreenshotPath = FilePath
