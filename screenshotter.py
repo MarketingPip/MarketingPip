@@ -120,7 +120,7 @@ for s in File_Names_List:
         if 'Browser-Width' in f.read():
             print("Writing Transparent")
             
-        for (match) in re.findall(BodyWidth, f.read, re.DOTALL):
+        for (match) in re.findall(BodyWidth, f.read(), re.DOTALL):
             print(match)
 
                        
