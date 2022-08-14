@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
 import chromedriver_autoinstaller
 import os
 import json
@@ -14,13 +13,11 @@ import time
 
 
 
-
-
 PythonScriptPath = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 print(PythonScriptPath)
 from pyvirtualdisplay import Display
-display = Display(visible=0, size=(1920, 1024))
+display = Display(visible=0, size=(800, 800))
 display.start()
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
@@ -31,26 +28,34 @@ chromedriver_autoinstaller.install()  # Check if the current version of chromedr
 
 chrome_options = webdriver.ChromeOptions()
 options = [
-   "--start-maximized",
-   #"--window-size=1000,1000",
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
     "--ignore-certificate-errors",
-    "--hide-scrollbars",
-    "--user-agent=[Mozilla/5.0 (Linux; Android 5.1; PULP Build/LMY47I; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/44.0.2403.119 Mobile Safari/537.36]"
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    '--remote-debugging-port=9222'
 ]
 for option in options:
     chrome_options.add_argument(option)
 
 
-    
-driver = webdriver.Chrome(options = chrome_options)
 
 
-input_variable = "html/quote.html,html/movies.html"
+
+input_variable = "html/quote.html,html/movies.html,"
 
 
 input_variable2 = "demo"
 input_variable3 = "File"
 input_variable4 = "MarketingPip"
+
+
+FileNames = input_variable
+
+
+
 
 
 
@@ -61,11 +66,10 @@ FileNames = input_variable
 
 
 
-
 if input_variable3 == "URL":
     Files = FileNames.split(',')
     ReplaceText = "https://"
-    Type="https://"
+    Type="http://"
     Type2 = ""
     Type2 = Type2.replace(" ", "")
     Sleep = 10
@@ -74,7 +78,7 @@ if input_variable3 == "URL":
 
 else:
 
-    Files = FileNames.split('.')
+    Files = FileNames.split(',')
     ReplaceText = ".html"
     Type = f"file:///home/runner/work/{input_variable4}/{input_variable4}/"
     Type2 = ".html"
@@ -107,8 +111,8 @@ File_Names_List.pop()
 driver = webdriver.Chrome()
 for s in File_Names_List:
     ScreenshotPath = FilePath
-    FilePath = s.replace(ReplaceText, "")
-    FileName = FilePath.replace(",", "")
+    FileName = s.replace(ReplaceText, "")
+    FileName = FileName.replace(",", "")
     Name = FileName
     ScreenshotName = Name
     Link =  Type + Name + Type2
@@ -117,16 +121,19 @@ for s in File_Names_List:
     else:
         pass
     ScreenshotPath = ScreenshotPath + ScreenshotName
-    ScreenshotPath = ScreenshotPath.replace("/", "-") 
+    ScreenshotPath = os.path.basename(ScreenshotPath)
     try:
         ScreenshotPath = ScreenshotPath.split('.com', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
+
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
-       # el = driver.find_element_by_tag_name('body')
-        el = driver.save_screenshot(ScreenshotPath)
+     
+     #   el = driver.find_element_by_tag_name('body')
+        el = driver.save_screenshot(FilePath + ScreenshotPath)
+      #  print(FilePath+ScreenshotPath)
         print("Screenshot captured")
         print(Link)
         print(ScreenshotPath)
