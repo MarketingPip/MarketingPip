@@ -5,7 +5,7 @@
 
 
  
-  <img align="right" width="460" height="300" src="./html/quotequote.png">
+  <img align="right" width="460" height="300" src="./demo/quote.png">
 
   
 
