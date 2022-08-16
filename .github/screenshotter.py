@@ -121,17 +121,11 @@ for s in File_Names_List:
 
             
         for i, line in enumerate(open(s)):
-            MatchFound = None
             for width, height in re.findall(pattern, line):
                 if width:
-                    MatchFound = True
+                    driver.set_window_size(width,height)
                 else:
-                    print("Match not found for", s)
-                    MatchFound = None
-            if MatchFound == True:
-                driver.set_window_size(width,height)
-            else:
-                driver.set_window_size(1920,1200)
+                    driver.set_window_size(1920,1200)
 
                        
     ScreenshotPath = FilePath
