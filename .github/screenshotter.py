@@ -127,8 +127,8 @@ for s in File_Names_List:
                     MatchFound = True
                 else:
                     print("Match not found for", s)
-                    MatchFound = False
-        if MatchFound != True:
+                    MatchFound = None
+        if MatchFound is None:
             driver.set_window_size(1920,1200)
 
                        
