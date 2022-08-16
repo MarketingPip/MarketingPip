@@ -111,7 +111,7 @@ pattern = re.compile("<!-BROWSER-SIZE:(.*?)->")
 
 for i, line in enumerate(open('html/open_graph.html')):
     for match in re.finditer(pattern, line):
-        print('Found on line' + match)
+        print('Found on line', match)
 
 
 
