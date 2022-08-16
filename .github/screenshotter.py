@@ -113,7 +113,7 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-BodyWidth = '<!-BROWSER-SIZE:(.*?)-> '
+BodyWidth = re.compile(r'<!-BROWSER-SIZE:(.*?)->')
 
 for s in File_Names_List:
     with open(s) as f:
@@ -123,7 +123,7 @@ for s in File_Names_List:
         if 'Browser-Width' in f.read():
             print("Writing Transparent")
             
-        for (match) in re.findall(BodyWidth, f.read(), re.DOTALL):
+        for (match) in re.findall(BodyWidth, f.read()):
             print(match)
 
                        
