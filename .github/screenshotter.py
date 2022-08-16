@@ -147,7 +147,7 @@ for s in File_Names_List:
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
      
-        el = driver.find_element(By.TAG_NAME, "body")
+        #el = driver.find_element(By.TAG_NAME, "body")
         el = driver.save_screenshot(FilePath + ScreenshotPath)
       #  print(FilePath+ScreenshotPath)
         print("Screenshot captured")
