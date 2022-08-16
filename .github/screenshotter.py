@@ -107,10 +107,10 @@ for i in Files:
     File_Names_List.append(i)
 
 
-pattern = re.compile("<!-BROWSER-SIZE:(.*?)->")
+pattern = "<!-BROWSER-SIZE:(.*?)->"
 
 for i, line in enumerate(open('html/open_graph.html')):
-    for match in re.finditer(pattern, line):
+    for match in re.findall(pattern, line):
         print('Found on line', match)
 
 
