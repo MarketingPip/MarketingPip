@@ -113,7 +113,7 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-BodyWidth = '<!-BROWSER-SIZE:(.*?)->'
+BodyWidth = '<!-BROWSER-SIZE:(.*?)-> '
 
 for s in File_Names_List:
     with open(s) as f:
