@@ -112,7 +112,7 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-BodyWidth = '<!-BROWSER-SIZE:(.*?)->'
+pattern = '<!-BROWSER-SIZE:(.*?),(.*?)->'
 
 for s in File_Names_List:
     with open(s) as f:
@@ -121,8 +121,8 @@ for s in File_Names_List:
 
             
         for i, line in enumerate(open(s)):
-            for match in re.findall(BodyWidth, line):
-                print("Found match", match)
+            for width, height in re.findall(pattern, line):
+                driver.set_window_size(width,height)
 
                        
     ScreenshotPath = FilePath
