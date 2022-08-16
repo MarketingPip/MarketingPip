@@ -124,9 +124,6 @@ for s in File_Names_List:
             for width, height in re.findall(pattern, line):
                 if width:
                     driver.set_window_size(width,height)
-                else:
-                    driver.set_window_size(1920,1200)
-
                        
     ScreenshotPath = FilePath
     FileName = s.replace(ReplaceText, "")
