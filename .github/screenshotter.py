@@ -120,7 +120,7 @@ for s in File_Names_List:
             driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
             
-        for i, line in f.read():
+        for i, line in enumerate(open(s)):
             for match in re.findall(BodyWidth, line):
                 print("Found match", match)
 
