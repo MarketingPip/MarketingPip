@@ -121,6 +121,7 @@ for s in File_Names_List:
 
             
         for i, line in enumerate(open(s)):
+            MatchFound = None
             for width, height in re.findall(pattern, line):
                 if width:
                     MatchFound = True
