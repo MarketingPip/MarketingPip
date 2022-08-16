@@ -122,7 +122,10 @@ for s in File_Names_List:
             
         for i, line in enumerate(open(s)):
             for width, height in re.findall(pattern, line):
-                driver.set_window_size(width,height)
+                if width:
+                    driver.set_window_size(width,height)
+                else:
+                    driver.set_window_size(1920,1200)
 
                        
     ScreenshotPath = FilePath
