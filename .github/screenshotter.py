@@ -124,6 +124,7 @@ for s in File_Names_List:
                 if width:
                     driver.set_window_size(width,height)
                 else:
+                    print("Could not find match in", s)
                     driver.maximize_window()
                        
     ScreenshotPath = FilePath
