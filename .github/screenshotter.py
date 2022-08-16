@@ -107,28 +107,22 @@ for i in Files:
     File_Names_List.append(i)
 
 
-pattern = "<!-BROWSER-SIZE:(.*?)->"
-
-for i, line in enumerate(open('html/open_graph.html')):
-    for match in re.findall(pattern, line):
-        print('Found on line', match)
 
 
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-BodyWidth = re.compile(r'<!-BROWSER-SIZE:(.*?)->')
+BodyWidth = '<!-BROWSER-SIZE:(.*?)->'
 
 for s in File_Names_List:
     with open(s) as f:
         if '<!--MAKE-TRANSPARENT-->' in f.read():
             driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
-        if 'Browser-Width' in f.read():
-            print("Writing Transparent")
             
-        for (match) in re.findall(BodyWidth, f.read()):
-            print(match)
+        for i, line in enumerate(open(f)):
+            for match in re.findall(BodyWidth, line):
+                print("Found match", match)
 
                        
     ScreenshotPath = FilePath
