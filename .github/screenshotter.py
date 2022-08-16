@@ -112,7 +112,7 @@ for i in Files:
 
 File_Names_List.pop()
 driver = webdriver.Chrome()
-pattern = '<!-BROWSER-SIZE:(.*?),(.*?)->'
+pattern = '<!--BROWSER-SIZE:(.*?),(.*?)-->'
 
 for s in File_Names_List:
     with open(s) as f:
