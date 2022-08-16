@@ -124,8 +124,12 @@ for s in File_Names_List:
             for width, height in re.findall(pattern, line):
                 if width:
                     driver.set_window_size(width,height)
+                    MatchFound = True
                 else:
-                    driver.set_window_size(1920,1200)
+                    print("Match not found for", s)
+                    MatchFound = False
+        if MatchFound != True:
+            driver.set_window_size(1920,1200)
 
                        
     ScreenshotPath = FilePath
