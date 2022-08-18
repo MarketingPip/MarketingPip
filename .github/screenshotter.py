@@ -33,7 +33,8 @@ chrome_options = webdriver.ChromeOptions()
 options = [
     "--headless",
     "--disable-gpu",
-    "--start-maximized",
+    #"--start-maximized",
+    "window-size=1920, 1080",
     "--ignore-certificate-errors",
     "--disable-extensions",
     "--no-sandbox",
