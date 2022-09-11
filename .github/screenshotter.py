@@ -49,7 +49,7 @@ for option in options:
 
 
 #input_variable = "html/quote.html,html/movies.html,html/open_graph.html,html/open_graph-2.html,html/quote-transparent.html,html/open_graph-3.html,"
-input_variable = "https://marketingpip.github.io/Testss/search?type=movie&name=8%20mile&theme=yes"
+input_variable = "https://marketingpip.github.io/Testss/search?type=movie&name=8%20mile&theme=yes,"
 
 input_variable2 = "test3"
 input_variable3 = "URL"
