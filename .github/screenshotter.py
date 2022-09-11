@@ -140,13 +140,13 @@ for s in File_Names_List:
     else:
         pass
     ScreenshotPath = ScreenshotPath + ScreenshotName
-    ScreenshotPath = os.path.basename(ScreenshotPath)
     try:
         ScreenshotPath = ScreenshotPath.split('.io', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
         #driver.get("https://marketingpipeline.github.io/Markdown-Tag")
         driver.get(Link)
-
+        # Remove After -- for playing right now... 
+        driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
         driver.execute_script("document.querySelector('html').style.overflow = 'hidden';")
         time.sleep(Sleep)
      
