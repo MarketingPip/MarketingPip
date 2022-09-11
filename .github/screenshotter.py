@@ -115,18 +115,19 @@ driver = webdriver.Chrome()
 pattern = '<!--BROWSER-SIZE:(.*?),(.*?)-->'
 
 for s in File_Names_List:
-    with open(s) as f:
-        if '<!--MAKE-TRANSPARENT-->' in f.read():
-            driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
+    if input_variable3 != "URL":
+        with open(s) as f:
+            if '<!--MAKE-TRANSPARENT-->' in f.read():
+                driver.execute_cdp_cmd("Emulation.setDefaultBackgroundColorOverride", {'color': {'r': 0, 'g': 0, 'b': 0, 'a': 0}})
 
             
-        for i, line in enumerate(open(s)):
-            for width, height in re.findall(pattern, line):
-                if width:
-                    driver.set_window_size(width,height)
-                else:
-                    print("Could not find match in", s)
-                    driver.maximize_window()
+            for i, line in enumerate(open(s)):
+                for width, height in re.findall(pattern, line):
+                    if width:
+                        driver.set_window_size(width,height)
+                    else:
+                        print("Could not find match in", s)
+                        driver.maximize_window()
                        
     ScreenshotPath = FilePath
     FileName = s.replace(ReplaceText, "")
