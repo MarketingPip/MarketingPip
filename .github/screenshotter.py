@@ -139,7 +139,7 @@ for s in File_Names_List:
         index(Link)
     else:
         pass
-    ScreenshotPath = ScreenshotPath + ScreenshotName
+    ScreenshotPath = ScreenshotName
     try:
         ScreenshotPath = ScreenshotPath.split('.io', 1)[0] + '.png'
         #driver.get('/home/runner/work/ProxyScraper-PY/ProxyScraper-PY/index.html')
