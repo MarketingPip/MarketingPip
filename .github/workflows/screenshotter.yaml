@@ -1,7 +1,7 @@
 name: Take a Screenshot
 
-on:
-  workflow_dispatch:
+#on:
+ # workflow_dispatch:
     inputs:
       Files:
          description: 'URL(s) or File(s) to take screenshot of (seperate by comma):'
