@@ -26,8 +26,8 @@ Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/sou
 
 
 <div align="right">
-  <br>This image was dynamically generated ⤴️<br> 
-   come back later for a tutorial on how to make your own!
+  <br>This image was automatically updated ⤴️<br> 
+  to add auto updated quotes to your own profile check out this <a href="https://github.com/MarketingPipeline/Quote-Placeholders">repo</a>
 </div>
 
 
