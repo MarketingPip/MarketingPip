@@ -18,11 +18,11 @@ My goal is to help make tools for developers to make their lives easier and to c
 
 
 
-You can find some of my other work @ [Marketing Pipeline](https://github.com/MarketingPipeline/)
+You can find most of my work & projects @ [Marketing Pipeline](https://github.com/MarketingPipeline/)
 
 
 ---
-### You can sponsor my work SOON through [GitHub sponsors.](https://github.com/sponsors/)
+### You can sponsor my work through [GitHub sponsors.](https://github.com/sponsors/MarketingPipeline)
 
 
 Cheers!   <img width="20" height="20" src="https://static.wikia.nocookie.net/southpark/images/c/ca/PhillipPip.png/revision/latest/scale-to-width-down/350?cb=20171020035739">
