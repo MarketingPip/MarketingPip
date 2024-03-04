@@ -2,7 +2,7 @@
 
 
 
-## Hello! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px">
+## Hello! <img src="https://github.com/MarketingPip/MarketingPip/assets/86180097/5f77ccca-7770-42b8-8e02-23136ead1b3b" width="25px">
 
 
 
