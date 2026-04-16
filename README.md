@@ -7,9 +7,9 @@
 
 
 
- 
+<picture>
   <img align="right" width="460" height="300" src="https://imageplaceholder.github.io/quotes/famous-quotes.png">
-
+</picture>
   
 
 
