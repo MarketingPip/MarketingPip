@@ -8,7 +8,7 @@
 
 
 <picture>
-  <img align="right" width="460" height="400" src="https://imageplaceholder.github.io/quotes/famous-quotes.png">
+  <img align="right" width="460" height="350" src="https://imageplaceholder.github.io/quotes/famous-quotes.png">
 </picture>
   
 
